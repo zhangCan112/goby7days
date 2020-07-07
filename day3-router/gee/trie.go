@@ -12,7 +12,7 @@ type node struct {
 // 第一个匹配成功的节点，用于插入
 func (n *node) matchChild(part string) *node {
 	for _, child := range n.children {
-		if child.part == part || child.isWild {
+		if child.part == part || (child.isWild && (part[0] == ':' || part[0] == '*')) {
 			return child
 		}
 	}
