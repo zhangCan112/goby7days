@@ -95,13 +95,6 @@ func New() *Engine {
 	return engine
 }
 
-// Default use classic middware
-func Default() *Engine {
-	engine := New()
-	engine.Use(Recovery())
-	return engine
-}
-
 // Run defines the method to start a http server
 func (engine *Engine) Run(addr string) (err error) {
 	return http.ListenAndServe(addr, engine)

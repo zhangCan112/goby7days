@@ -20,14 +20,9 @@ func onlyForV2() gee.HandlerFunc {
 }
 
 func main() {
-	r := gee.Default()
+	r := gee.New()
 	r.GET("/", func(c *gee.Context) {
 		c.HTML(http.StatusOK, "<h1>Hello, Gee!</h1>")
-	})
-
-	r.GET("/panic", func(c *gee.Context) {
-		names := []string{"zhangcan"}
-		c.String(http.StatusOK, names[100])
 	})
 
 	r.GET("/hello", func(c *gee.Context) {
